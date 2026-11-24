@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    
+    --color-findit-navy: #173B70;
+    --color-findit-navy-dark: #0f284e;
+    --color-findit-navy-light: #235299;
+    --color-findit-blue: #2563EB;
+    --color-findit-blue-hover: #1d4ed8;
+    --color-findit-accent: #60A5FA;
+    --color-findit-bg: #F8FAFC;
+    --color-findit-white: #FFFFFF;
+    --color-findit-ink: #0F172A;
+    --color-findit-slate: #64748B;
+    --color-findit-slate-light: #94A3B8;
+    --color-findit-green: #16A34A;
+    --color-findit-green-bg: #DCFCE7;
+    --color-findit-green-text: #166534;
+    --color-findit-amber: #D97706;
+    --color-findit-amber-bg: #FEF3C7;
+    --color-findit-amber-text: #92400E;
+    --color-findit-red: #DC2626;
+    --color-findit-red-bg: #FEE2E2;
+    --color-findit-red-text: #991B1B;
+    --color-findit-line: #E2E8F0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-findit-bg);
+    color: var(--color-findit-ink);
+    -webkit-font-smoothing: antialiased;
+}
