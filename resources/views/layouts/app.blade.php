@@ -20,56 +20,56 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Brand / Logo -->
-                <div class="flex items-center gap-3">
-                    <a href="{{ route('home') }}" class="flex items-center gap-2.5 group">
-                        <div class="w-10 h-10 rounded-xl bg-[#173B70] flex items-center justify-center text-white font-bold text-xl shadow-xs group-hover:bg-[#2563EB] transition">
+                <div class="flex items-center gap-3 shrink-0">
+                    <a href="{{ route('home') }}" class="flex items-center gap-2.5 group shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-[#173B70] flex items-center justify-center text-white font-bold text-xl shadow-xs group-hover:bg-[#2563EB] transition shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                             </svg>
                         </div>
-                        <div>
+                        <div class="shrink-0">
                             <div class="flex items-center gap-1.5">
                                 <span class="font-extrabold text-lg text-[#173B70] tracking-tight">FindIt</span>
                                 <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-blue-100 text-[#2563EB]">FASILKOM</span>
                             </div>
-                            <p class="text-[10px] text-[#64748B] font-medium leading-none">Universitas Singaperbangsa Karawang</p>
+                            <p class="text-[10px] text-[#64748B] font-medium leading-none hidden 2xl:block">Universitas Singaperbangsa Karawang</p>
                         </div>
                     </a>
 
                     <!-- Desktop Nav Links -->
-                    <nav class="hidden md:flex items-center gap-1 ml-6">
-                        <a href="{{ route('home') }}" class="px-3 py-2 rounded-lg text-sm font-medium transition {{ request()->routeIs('home') ? 'bg-blue-50 text-[#2563EB] font-semibold' : 'text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50' }}">
+                    <nav class="hidden md:flex items-center gap-1 lg:gap-1.5 ml-2 lg:ml-4 shrink-0">
+                        <a href="{{ route('home') }}" class="px-2.5 lg:px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap shrink-0 transition {{ request()->routeIs('home') ? 'bg-blue-50 text-[#2563EB] font-semibold' : 'text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50' }}">
                             Beranda
                         </a>
-                        <a href="{{ route('catalog.index') }}" class="px-3 py-2 rounded-lg text-sm font-medium transition {{ request()->routeIs('catalog.*') && !request()->routeIs('claims.create') ? 'bg-blue-50 text-[#2563EB] font-semibold' : 'text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50' }}">
-                            Katalog Barang Temuan
+                        <a href="{{ route('catalog.index') }}" class="px-2.5 lg:px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap shrink-0 transition {{ request()->routeIs('catalog.*') && !request()->routeIs('claims.create') ? 'bg-blue-50 text-[#2563EB] font-semibold' : 'text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50' }}">
+                            Katalog Barang
                         </a>
                         @auth
-                            <a href="{{ route('reports.index') }}" class="px-3 py-2 rounded-lg text-sm font-medium transition {{ request()->routeIs('reports.index') || request()->routeIs('claims.*') ? 'bg-blue-50 text-[#2563EB] font-semibold' : 'text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50' }}">
-                                Laporan &amp; Klaim Saya
+                            <a href="{{ route('reports.index') }}" class="px-2.5 lg:px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap shrink-0 transition {{ request()->routeIs('reports.index') || request()->routeIs('claims.*') ? 'bg-blue-50 text-[#2563EB] font-semibold' : 'text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50' }}">
+                                Laporan &amp; Klaim
                             </a>
                         @endauth
                     </nav>
                 </div>
 
                 <!-- Right Actions -->
-                <div class="flex items-center gap-2 sm:gap-3">
+                <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
                     <!-- Action Button: Lapor Kehilangan -->
-                    <a href="{{ route('reports.create') }}" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#2563EB] text-white hover:bg-blue-700 shadow-xs transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
-                        Lapor Kehilangan
+                    <a href="{{ route('reports.create') }}" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap shrink-0 bg-[#2563EB] text-white hover:bg-blue-700 shadow-xs transition">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+                        <span class="whitespace-nowrap">Lapor Kehilangan</span>
                     </a>
 
                     <!-- Action Button: Lapor Temuan Civitas -->
-                    <a href="{{ route('civitas-reports.create') }}" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-[#173B70] border border-[#E2E8F0] hover:bg-slate-50 transition">
-                        <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        Lapor Barang Temuan
+                    <a href="{{ route('civitas-reports.create') }}" class="hidden xl:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap shrink-0 bg-white text-[#173B70] border border-[#E2E8F0] hover:bg-slate-50 transition">
+                        <svg class="w-4 h-4 text-[#2563EB] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span class="whitespace-nowrap">Lapor Temuan</span>
                     </a>
 
                     @auth
                         <!-- Notification Bell -->
-                        <a href="{{ route('notifications.index') }}" class="relative p-2 rounded-xl text-[#64748B] hover:text-[#0F172A] hover:bg-slate-100 transition" title="Pusat Pemberitahuan">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <a href="{{ route('notifications.index') }}" class="relative p-2 rounded-xl text-[#64748B] hover:text-[#0F172A] hover:bg-slate-100 transition shrink-0" title="Pusat Pemberitahuan">
+                            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
                             </svg>
                             @php
@@ -83,16 +83,16 @@
                         </a>
 
                         <!-- User Profile Dropdown Button -->
-                        <div class="relative" id="userMenuContainer">
-                            <button type="button" onclick="toggleUserMenu()" class="flex items-center gap-2 p-1.5 rounded-xl hover:bg-slate-100 transition focus:outline-hidden">
-                                <div class="w-8 h-8 rounded-full bg-[#173B70] text-white flex items-center justify-center font-bold text-xs">
+                        <div class="relative shrink-0" id="userMenuContainer">
+                            <button type="button" onclick="toggleUserMenu()" class="flex items-center gap-2 p-1.5 rounded-xl hover:bg-slate-100 transition focus:outline-hidden shrink-0">
+                                <div class="w-8 h-8 rounded-full bg-[#173B70] text-white flex items-center justify-center font-bold text-xs shrink-0">
                                     {{ strtoupper(substr(auth()->user()->name, 0, 2)) }}
                                 </div>
-                                <div class="hidden sm:block text-left text-xs">
-                                    <p class="font-semibold text-[#0F172A] leading-tight line-clamp-1">{{ auth()->user()->name }}</p>
-                                    <p class="text-[#64748B] text-[11px]">{{ auth()->user()->role === 'petugas' ? 'Petugas Security' : (auth()->user()->identity_number ?? 'Mahasiswa') }}</p>
+                                <div class="hidden md:block text-left text-xs max-w-[100px] lg:max-w-[130px] xl:max-w-[160px]">
+                                    <p class="font-semibold text-[#0F172A] leading-tight truncate whitespace-nowrap">{{ auth()->user()->name }}</p>
+                                    <p class="text-[#64748B] text-[11px] truncate whitespace-nowrap">{{ auth()->user()->role === 'petugas' ? 'Petugas Security' : (auth()->user()->identity_number ?? 'Mahasiswa') }}</p>
                                 </div>
-                                <svg class="w-4 h-4 text-[#64748B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                <svg class="w-4 h-4 text-[#64748B] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
 
                             <!-- Dropdown Menu -->
