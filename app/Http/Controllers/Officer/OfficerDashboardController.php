@@ -28,13 +28,28 @@ class OfficerDashboardController extends Controller
         $chartDays = collect();
         for ($i = 6; $i >= 0; $i--) {
             $date = Carbon::today()->subDays($i);
+            $incoming = FoundItem::whereDate('created_at', $date)->count();
+            $returned = FoundItem::whereDate('handed_over_at', $date)->count();
+
             $chartDays->push([
                 'label' => $date->translatedFormat('D, d M'),
                 'short' => $date->translatedFormat('D'),
-                'incoming' => FoundItem::whereDate('created_at', $date)->count(),
-                'returned' => FoundItem::whereDate('handed_over_at', $date)->count(),
+                'incoming' => $incoming,
+                'returned' => $returned,
             ]);
         }
+
+        $maxVal = max(4, (int) $chartDays->max(fn($d) => max($d['incoming'], $d['returned'])));
+
+        $chartDays = $chartDays->map(function ($day) use ($maxVal) {
+            $day['incoming_pct'] = $day['incoming'] > 0
+                ? max(12, min(100, (int) round(($day['incoming'] / $maxVal) * 100)))
+                : 0;
+            $day['returned_pct'] = $day['returned'] > 0
+                ? max(12, min(100, (int) round(($day['returned'] / $maxVal) * 100)))
+                : 0;
+            return $day;
+        });
 
         // Recent activity
         $recentClaims = Claim::with(['foundItem', 'user'])->latest()->take(5)->get();
@@ -44,6 +59,7 @@ class OfficerDashboardController extends Controller
         return view('officer.dashboard', compact(
             'kpi',
             'chartDays',
+            'maxVal',
             'recentClaims',
             'recentReports',
             'recentItems'

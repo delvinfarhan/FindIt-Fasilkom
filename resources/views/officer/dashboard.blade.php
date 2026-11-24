@@ -96,26 +96,46 @@
             </div>
 
             <!-- Visual Bar Chart -->
-            <div class="h-56 flex items-end justify-between gap-3 pt-6 border-b border-[#E2E8F0] px-2">
-                @foreach($chartDays as $day)
-                    <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
-                        <div class="w-full flex items-end justify-center gap-1.5 h-40">
-                            <!-- Incoming Bar -->
-                            <div class="w-4 sm:w-6 bg-[#2563EB] rounded-t-md transition group-hover:brightness-110 relative" style="height: {{ max(15, ($day['incoming'] * 35)) }}px">
-                                <span class="opacity-0 group-hover:opacity-100 transition absolute -top-6 left-1/2 -translate-x-1/2 bg-[#0F172A] text-white text-[10px] px-1.5 py-0.5 rounded pointer-events-none">
-                                    {{ $day['incoming'] }}
-                                </span>
+            <div class="relative pt-4">
+                <!-- Background Reference Lines -->
+                <div class="absolute inset-x-0 top-4 bottom-8 flex flex-col justify-between pointer-events-none">
+                    <div class="border-b border-dashed border-slate-100 w-full flex justify-end pr-1"><span class="text-[10px] text-slate-400 -mt-2">{{ $maxVal ?? 4 }}</span></div>
+                    <div class="border-b border-dashed border-slate-100 w-full flex justify-end pr-1"><span class="text-[10px] text-slate-400 -mt-2">{{ round(($maxVal ?? 4) / 2) }}</span></div>
+                    <div class="border-b border-slate-200 w-full flex justify-end pr-1"><span class="text-[10px] text-slate-400 -mt-2">0</span></div>
+                </div>
+
+                <!-- Bars Container -->
+                <div class="h-44 flex items-end justify-between gap-2 sm:gap-3 px-2 sm:px-4 relative z-10">
+                    @foreach($chartDays as $day)
+                        <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                            <!-- Bars Track -->
+                            <div class="w-full flex items-end justify-center gap-1 sm:gap-1.5 h-36 relative">
+                                <!-- Incoming Bar -->
+                                @if($day['incoming'] > 0)
+                                    <div class="w-3.5 sm:w-5 bg-[#2563EB] rounded-t-md transition-all duration-300 group-hover:brightness-110 relative" style="height: {{ $day['incoming_pct'] }}%">
+                                        <span class="opacity-0 group-hover:opacity-100 transition absolute -top-7 left-1/2 -translate-x-1/2 bg-[#0F172A] text-white text-[10px] font-semibold px-1.5 py-0.5 rounded shadow pointer-events-none whitespace-nowrap z-30">
+                                            {{ $day['incoming'] }} Masuk
+                                        </span>
+                                    </div>
+                                @else
+                                    <div class="w-3.5 sm:w-5 h-1 bg-slate-200 rounded-full" title="0 barang masuk"></div>
+                                @endif
+
+                                <!-- Returned Bar -->
+                                @if($day['returned'] > 0)
+                                    <div class="w-3.5 sm:w-5 bg-[#16A34A] rounded-t-md transition-all duration-300 group-hover:brightness-110 relative" style="height: {{ $day['returned_pct'] }}%">
+                                        <span class="opacity-0 group-hover:opacity-100 transition absolute -top-7 left-1/2 -translate-x-1/2 bg-[#0F172A] text-white text-[10px] font-semibold px-1.5 py-0.5 rounded shadow pointer-events-none whitespace-nowrap z-30">
+                                            {{ $day['returned'] }} Dikembalikan
+                                        </span>
+                                    </div>
+                                @else
+                                    <div class="w-3.5 sm:w-5 h-1 bg-slate-200 rounded-full" title="0 dikembalikan"></div>
+                                @endif
                             </div>
-                            <!-- Returned Bar -->
-                            <div class="w-4 sm:w-6 bg-[#16A34A] rounded-t-md transition group-hover:brightness-110 relative" style="height: {{ max(10, ($day['returned'] * 35)) }}px">
-                                <span class="opacity-0 group-hover:opacity-100 transition absolute -top-6 left-1/2 -translate-x-1/2 bg-[#0F172A] text-white text-[10px] px-1.5 py-0.5 rounded pointer-events-none">
-                                    {{ $day['returned'] }}
-                                </span>
-                            </div>
+                            <span class="text-[11px] font-medium text-[#64748B]">{{ $day['short'] }}</span>
                         </div>
-                        <span class="text-[11px] font-medium text-[#64748B] mt-1">{{ $day['short'] }}</span>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
             <p class="text-[11px] text-[#94A3B8] text-center mt-3">Statistik sinkronisasi otomatis Pos Keamanan FASILKOM</p>
         </div>

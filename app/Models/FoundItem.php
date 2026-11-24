@@ -26,6 +26,8 @@ class FoundItem extends Model
         'created_by',
         'handed_over_to_user_id',
         'handed_over_at',
+        'created_at',
+        'updated_at',
     ];
 
     protected function casts(): array

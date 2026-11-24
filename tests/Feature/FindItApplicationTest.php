@@ -97,6 +97,8 @@ class FindItApplicationTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Panel Pos Security');
         $response->assertSee('Selamat Bertugas');
+        $response->assertSee('Aktivitas 7 Hari Terakhir');
+        $response->assertDontSee('px"');
 
         $this->actingAs($this->officer)->get('/officer/items')->assertStatus(200);
         $this->actingAs($this->officer)->get('/officer/items/create')->assertStatus(200);
