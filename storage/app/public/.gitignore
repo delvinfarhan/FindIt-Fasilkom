@@ -1,2 +1,6 @@
 *
 !.gitignore
+!items/
+!items/*.jpg
+!proofs/
+!proofs/*.jpg

@@ -15,32 +15,6 @@
 </head>
 <body class="min-h-full flex flex-col bg-[#F8FAFC] text-[#0F172A] font-['Inter',sans-serif] antialiased">
 
-    <!-- Demo Role Switcher Bar -->
-    <div class="bg-[#0f284e] text-white text-xs py-2 px-4 border-b border-[#235299]/50">
-        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-            <div class="flex items-center gap-2">
-                <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-[#2563EB] text-white">PROTOTYPE DEMO</span>
-                <span class="text-slate-300">UAS Pemrograman Animasi Multimedia &bull; S1 Sistem Informasi UNSIKA</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="text-slate-300 hidden sm:inline">Pindah Peran:</span>
-                <a href="{{ route('quick-login', 'mahasiswa') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#173B70] hover:bg-[#2563EB] border border-blue-400/30 text-white font-medium transition text-xs">
-                    <svg class="w-3.5 h-3.5 text-blue-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
-                    Civitas (Nadia Putri)
-                </a>
-                <a href="{{ route('quick-login', 'petugas') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-amber-900/60 hover:bg-amber-700 border border-amber-400/30 text-amber-100 font-medium transition text-xs">
-                    <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                    Security (Dedi Saputra)
-                </a>
-                @auth
-                    @if(auth()->user()->isPetugas())
-                        <a href="{{ route('officer.dashboard') }}" class="underline text-blue-300 hover:text-white ml-1">Panel Petugas &rarr;</a>
-                    @endif
-                @endauth
-            </div>
-        </div>
-    </div>
-
     <!-- Main Navigation Bar -->
     <header class="bg-white border-b border-[#E2E8F0] sticky top-0 z-40 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -265,13 +239,13 @@
                         <li><a href="{{ route('catalog.index') }}" class="hover:text-[#2563EB] transition">Katalog Barang Temuan</a></li>
                         <li><a href="{{ route('reports.create') }}" class="hover:text-[#2563EB] transition">Laporkan Kehilangan</a></li>
                         <li><a href="{{ route('civitas-reports.create') }}" class="hover:text-[#2563EB] transition">Laporkan Barang Temuan</a></li>
-                        <li><a href="{{ route('quick-login', 'petugas') }}" class="hover:text-[#2563EB] transition">Masuk Panel Petugas</a></li>
+                        <li><a href="{{ route('login') }}" class="hover:text-[#2563EB] transition">Portal Petugas Pos Keamanan</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-[#E2E8F0] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-                <p>&copy; 2026 FindIt FASILKOM UNSIKA. Mochammad Delvin Farhan Akbar &bull; NPM 2310631250063.</p>
-                <p class="text-[11px] text-[#94A3B8]">Dosen Pengampu: Apriade Voutama, M.Kom. &bull; Pemrograman Animasi Multimedia</p>
+                <p>&copy; 2026 FindIt FASILKOM &bull; Fakultas Ilmu Komputer, Universitas Singaperbangsa Karawang.</p>
+                <p class="text-[11px] text-[#94A3B8]">Layanan Sistem Pengelolaan Barang Temuan &amp; Pelaporan Kehilangan Terintegrasi</p>
             </div>
         </div>
     </footer>

@@ -102,14 +102,10 @@
             </a>
 
             <div class="pt-4 mt-4 border-t border-blue-900/60">
-                <p class="px-3 text-[10px] font-bold uppercase tracking-wider text-blue-300 mb-2">Pintasan Cepat</p>
+                <p class="px-3 text-[10px] font-bold uppercase tracking-wider text-blue-300 mb-2">Pintasan</p>
                 <a href="{{ route('home') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-blue-200 hover:bg-[#235299] hover:text-white transition">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                     Lihat Web Publik
-                </a>
-                <a href="{{ route('quick-login', 'mahasiswa') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-amber-300 hover:bg-amber-900/40 transition">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
-                    Uji Sebagai Mahasiswa
                 </a>
             </div>
         </nav>

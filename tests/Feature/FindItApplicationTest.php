@@ -60,14 +60,19 @@ class FindItApplicationTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('FindIt');
         $response->assertSee('Temukan Kembali');
+        $response->assertDontSee('PROTOTYPE DEMO');
+        $response->assertDontSee('Pindah Peran:');
 
         $responseCatalog = $this->get('/catalog');
         $responseCatalog->assertStatus(200);
         $responseCatalog->assertSee('Katalog Barang Temuan');
+        $responseCatalog->assertSee('.jpg');
 
         $responseLogin = $this->get('/login');
         $responseLogin->assertStatus(200);
         $responseLogin->assertSee('Masuk');
+        $responseLogin->assertDontSee('Akses Demo Satu Klik');
+        $responseLogin->assertDontSee('PROTOTYPE DEMO');
 
         $responseRegister = $this->get('/register');
         $responseRegister->assertStatus(200);
