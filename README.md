@@ -113,7 +113,6 @@
 | Peran | Nama Pengguna | Email | Kata Sandi | Deskripsi |
 |---|---|---|---|---|
 | **Mahasiswa** | Nadia Putri | `nadia.putri@example.ac.id` | `password` | Mahasiswa S1 SI (NPM: 2210631170042) dengan laporan dompet aktif dan klaim kepemilikan. |
-| **Mahasiswa** | Mochammad Delvin F. A. | `delvin@student.unsika.ac.id` | `password` | Mahasiswa S1 SI (NPM: 2310631250063) dengan laporan kunci motor. |
 | **Petugas** | Dedi Saputra | `petugas@findit.ac.id` | `password` | Petugas Pos Keamanan FASILKOM (ID: SEC-FASILKOM-01) berhak mengakses seluruh panel petugas. |
 
 ---
